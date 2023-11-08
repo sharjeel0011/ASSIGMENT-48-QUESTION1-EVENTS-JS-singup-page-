@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+body{
+    background-color: rgb(223, 183, 214);
+    
+}
+.a {
+    width: 250px;
+    height: auto;
+    background-color: rgb(81, 116, 147);
+    border-radius: 5px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+}
+.input{
+    width: 280px;
+    height: 30px;
+border-radius: 5px;
+border: none;
+}
+.button{
+    width: 140px ;
+    height: 30px;
+    border: none;
+    background-color: rgb(25, 183, 25);
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+}
+.button:hover{
+    background-color: rgb(31, 234, 31);
+    width: 150px ;
+}
+h1{
+    color: rgb(255, 124, 224);
+}
+#b{
+    display: none;
+    color: #fff;
+}
+</style>
+</head>
+<body>
+
+<div class="a" >
+    <form action="" id="a">
+    <h1>sing up</h1>
+    <input class="input" id="fName" type="text" placeholder="first name" required><br><br>
+    <input class="input"  id="LName" type="text" placeholder="last name" required> <br><br>
+    <input class="input" id="userEmail" type="email" placeholder="email" required><br><br>
+    <input class="input" id="password1" type="password" placeholder="password" required minlength="6" maxlength="8"> <br><br>
+    <input class="input" id="password2" type="password" placeholder="confirm password (Optional)" minlength="6" maxlength="8" required><br><br>
+    <button id="button" class="button" type="submit" ><b>Login</b></button>
+</form>
+
+</div>
+ <div class="a" id="b">
+     <h3 id="minHeding" ></h3>
+    <h3 id="1h"></h3>
+    <h3 id="2h"></h3>
+    <h3 id="3h"></h3>
+</div>
+
+<script>
+    //question 1assigment js 
+    //Q . create singup page then show user data on submission?
+    const form1 = document.getElementById("a")
+    const form2 = document.getElementById("b")
+    //form 3 value add on add 
+    let minHeding = document.getElementById("minHeding")
+    const h1h = document.getElementById("1h")
+    const h2h = document.getElementById("2h")
+    const h3h = document.getElementById("3h")
+    
+form1.addEventListener("submit",function(event){
+    event.preventDefault();
+    let fName = document.getElementById("fName").value
+    let lName = document.getElementById("LName").value
+    let userEmail = document.getElementById("userEmail").value
+    let userPassward1 = document.getElementById("password1").value
+    let userPassward = document.getElementById("password2").value
+    //chex password
+    if(userPassward1===userPassward){
+
+    
+    //next
+    minHeding.textContent = `user data`
+    h1h.textContent = `full Name: ${fName}${lName}`;
+    h2h.textContent = `e-mail address: ${userEmail}`
+    h3h.textContent = `user confirm password: ${userPassward}`
+    
+    const form1divs = document.getElementsByClassName("a");
+    for (let i = 0; i < form1divs.length; i++) {
+        form1divs[i].style.display = "none";
+    }
+    form2.style.display = "block"; 
+}else{
+    alert("plese write again password both side same")
+    
+}
+})
+
+</script>
+
+</body>
+</html>
